@@ -7,3 +7,5 @@ venv/
 *.pkl
 *.pt
 data/raw/
+data/processed/
+data/Glove
