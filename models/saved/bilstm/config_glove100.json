@@ -1,0 +1,21 @@
+{
+  "seed": 42,
+  "glove_dim": 100,
+  "max_len": 512,
+  "min_word_freq": 2,
+  "vocab_size": 20610,
+  "glove_coverage": 0.7379427462396895,
+  "embedding_training_mode": "selective_freeze",
+  "glove_pretrained_rows": 15209,
+  "oov_trainable_rows": 5401,
+  "hidden_dim": 128,
+  "num_layers": 1,
+  "dropout": 0.4,
+  "batch_size": 64,
+  "learning_rate": 0.001,
+  "pos_weight": 1.6982436472346787,
+  "best_epoch": 12,
+  "best_val_f1": 0.7602825093477358,
+  "effective_trainable_params": 841925,
+  "device": "cpu"
+}
