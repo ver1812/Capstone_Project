@@ -1,0 +1,22 @@
+{
+  "seed": 42,
+  "embedding_type": "fasttext_subword",
+  "embed_dim": 300,
+  "fasttext_model": "crawl-300d-2M-subword",
+  "max_len": 1024,
+  "min_word_freq": 2,
+  "vocab_size": 20610,
+  "fasttext_exact_hits": 16663,
+  "fasttext_subword_constructed": 3945,
+  "embedding_training_mode": "selective_freeze",
+  "hidden_dim": 128,
+  "num_layers": 1,
+  "dropout": 0.4,
+  "batch_size": 64,
+  "learning_rate": 0.001,
+  "pos_weight": 1.6982436472346787,
+  "best_epoch": 10,
+  "best_val_f1": 0.7608510638297873,
+  "effective_trainable_params": 1690725,
+  "device": "cuda"
+}
