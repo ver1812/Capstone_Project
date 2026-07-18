@@ -1,0 +1,21 @@
+{
+  "seed": 42,
+  "glove_dim": 100,
+  "max_len": 512,
+  "min_word_freq": 2,
+  "vocab_size": 20601,
+  "glove_coverage": 0.7219067035580797,
+  "embedding_training_mode": "selective_freeze",
+  "glove_pretrained_rows": 14872,
+  "oov_trainable_rows": 5729,
+  "hidden_dim": 128,
+  "num_layers": 1,
+  "dropout": 0.4,
+  "batch_size": 64,
+  "learning_rate": 0.001,
+  "pos_weight": 1.0902506156743446,
+  "best_epoch": 20,
+  "best_val_f1": 0.8945032434277911,
+  "effective_trainable_params": 874725,
+  "device": "cuda"
+}
