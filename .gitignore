@@ -1,4 +1,4 @@
-
+models/saved_v2/dl_v2/distill/distilbert_artifacts.zip
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
@@ -9,3 +9,4 @@ venv/
 data/raw/
 data/processed/
 data/Glove
+models/saved_v2/dl_v2/distill/distilbert_artifacts/distilbert_best/model.safetensors
