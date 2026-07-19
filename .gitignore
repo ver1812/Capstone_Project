@@ -10,3 +10,5 @@ data/raw/
 data/processed/
 data/Glove
 models/saved_v2/dl_v2/distill/distilbert_artifacts/distilbert_best/model.safetensors
+
+models/saved_v2/transformers
