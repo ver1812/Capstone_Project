@@ -1,0 +1,19 @@
+{
+  "seed": 42,
+  "model_name": "microsoft/deberta-v3-base",
+  "model_slug": "deberta_v3",
+  "max_len": 512,
+  "batch_size": 16,
+  "learning_rate": 2e-05,
+  "warmup_ratio": 0.1,
+  "max_epochs": 8,
+  "patience": 3,
+  "grad_clip": 1.0,
+  "amp_enabled": true,
+  "pos_weight": 1.0902506156743446,
+  "best_epoch": 5,
+  "best_val_f1": 0.9530386740331491,
+  "total_params": 184422913,
+  "trainable_params": 184422913,
+  "device": "cuda"
+}

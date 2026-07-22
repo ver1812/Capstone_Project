@@ -1,0 +1,37 @@
+{
+  "bert": {
+    "config": "bert",
+    "validation": {
+      "split": "val",
+      "threshold": 0.5,
+      "accuracy": 0.9440491591203105,
+      "precision": 0.9664285714285714,
+      "recall": 0.9148073022312373,
+      "f1": 0.9399096908648836,
+      "roc_auc": 0.9820982073056685,
+      "pr_auc": 0.9842042782515494
+    },
+    "test": {
+      "split": "test",
+      "threshold": 0.5,
+      "accuracy": 0.9333979954736502,
+      "precision": 0.9636098981077147,
+      "recall": 0.8945945945945946,
+      "f1": 0.9278206026629292,
+      "roc_auc": 0.975544143027094,
+      "pr_auc": 0.9786746444191212
+    },
+    "validation_confusion_matrix": {
+      "tn": 1566,
+      "fp": 47,
+      "fn": 126,
+      "tp": 1353
+    },
+    "test_confusion_matrix": {
+      "tn": 1563,
+      "fp": 50,
+      "fn": 156,
+      "tp": 1324
+    }
+  }
+}

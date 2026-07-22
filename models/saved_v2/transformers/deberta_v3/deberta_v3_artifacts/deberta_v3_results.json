@@ -1,0 +1,37 @@
+{
+  "deberta_v3": {
+    "config": "deberta_v3",
+    "validation": {
+      "split": "val",
+      "threshold": 0.5,
+      "accuracy": 0.9560155239327296,
+      "precision": 0.9738884968242767,
+      "recall": 0.9330628803245437,
+      "f1": 0.9530386740331491,
+      "roc_auc": 0.9856769310541841,
+      "pr_auc": 0.9875365505518569
+    },
+    "test": {
+      "split": "test",
+      "threshold": 0.5,
+      "accuracy": 0.9508567733591982,
+      "precision": 0.9722617354196301,
+      "recall": 0.9236486486486486,
+      "f1": 0.9473319473319474,
+      "roc_auc": 0.9841088453611702,
+      "pr_auc": 0.9865907395324405
+    },
+    "validation_confusion_matrix": {
+      "tn": 1576,
+      "fp": 37,
+      "fn": 99,
+      "tp": 1380
+    },
+    "test_confusion_matrix": {
+      "tn": 1574,
+      "fp": 39,
+      "fn": 113,
+      "tp": 1367
+    }
+  }
+}

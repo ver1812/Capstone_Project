@@ -1,0 +1,31 @@
+{
+  "distilbert": {
+    "config": "distilbert",
+    "validation": {
+      "split": "val",
+      "threshold": 0.5,
+      "accuracy": 0.9340232858990944,
+      "precision": 0.9511677282377919,
+      "recall": 0.9087221095334685,
+      "f1": 0.9294605809128631,
+      "roc_auc": 0.9740808181664609,
+      "pr_auc": 0.9777597461330575
+    },
+    "test": {
+      "split": "test",
+      "threshold": 0.5,
+      "accuracy": 0.9288716456514711,
+      "precision": 0.9430379746835443,
+      "recall": 0.9060810810810811,
+      "f1": 0.9241902136457616,
+      "roc_auc": 0.9726332501131013,
+      "pr_auc": 0.9763531447645118
+    },
+    "test_confusion_matrix": {
+      "tn": 1532,
+      "fp": 81,
+      "fn": 139,
+      "tp": 1341
+    }
+  }
+}
