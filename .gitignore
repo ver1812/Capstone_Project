@@ -17,5 +17,6 @@ models/saved_v2/transformers/BERT_uncased/bert_artifacts/bert_best/model.safeten
 models/saved_v2/transformers/deberta_v3/deberta_v3_artifacts.zip
 models/saved_v2/transformers/deberta_v3/deberta_v3_artifacts/deberta_v3_best/model.safetensors
 
-
+models/saved_v2/transformers/modernbert/modernbert_artifacts.zip
+models/saved_v2/transformers/modernbert/modernbert_artifacts/modernbert_best/model.safetensors
 
