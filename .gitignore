@@ -19,4 +19,6 @@ models/saved_v2/transformers/deberta_v3/deberta_v3_artifacts/deberta_v3_best/mod
 
 models/saved_v2/transformers/modernbert/modernbert_artifacts.zip
 models/saved_v2/transformers/modernbert/modernbert_artifacts/modernbert_best/model.safetensors
+.DS_store
+
 
