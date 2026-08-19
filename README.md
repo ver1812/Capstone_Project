@@ -33,3 +33,17 @@ Requires Python 3.11.
 conda env create -f environment.yml
 conda activate llm-pids
 ```
+
+
+The notebooks were developed and executed across three environments: local machine (CPU) for the conventional machine learning algorithms, Kaggle (NVIDIA T4) for the BiLSTM versions, and Colab (NVIDIA T4 for BERT-base and DistilBERT, NVIDIA A100 for ModernBERT-base). The evaluation notebooks have been run on a Colab A100 notebook to ensure consistent latencies between models.
+ 
+### Configuring paths
+ 
+The notebooks were written to run on Google Colab with Google Drive mounted, and read from and write to a `Capstone/` directory on Drive. Each notebook defines its input and output paths in a configuration cell near the top. To run them elsewhere, edit that cell to point at your local equivalents of:
+ 
+- `Capstone/data_v2/` — the processed corpus splits
+- `Capstone/saved/` — model weights
+- `Capstone/eval/results/` — evaluation output
+No other changes should be needed.
+ 
+---
