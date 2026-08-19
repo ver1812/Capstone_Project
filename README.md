@@ -41,9 +41,31 @@ The notebooks were developed and executed across three environments: local machi
  
 The notebooks were written to run on Google Colab with Google Drive mounted, and read from and write to a `Capstone/` directory on Drive. Each notebook defines its input and output paths in a configuration cell near the top. To run them elsewhere, edit that cell to point at your local equivalents of:
  
-- `Capstone/data_v2/` — the processed corpus splits
-- `Capstone/saved/` — model weights
-- `Capstone/eval/results/` — evaluation output
+- `Capstone/data_v2/` : the processed corpus splits
+- `Capstone/saved/` : model weights
+- `Capstone/eval/results/` : evaluation output
 No other changes should be needed.
+ 
+---
+
+ 
+## Data
+ 
+Four datasets are used. Two are gated on Hugging Face and require access approval before download.
+ 
+| Dataset | Role | Link |
+|---|---|---|
+| `deepset/prompt-injections` | Direct injection, training corpus | [Hugging Face](https://huggingface.co/datasets/deepset/prompt-injections) |
+| `allenai/wildjailbreak` (gated) | Adversarial jailbreak, training corpus | [Hugging Face](https://huggingface.co/datasets/allenai/wildjailbreak) |
+| `ahsanayub/malicious-prompts` | Malicious/benign prompts, training corpus | [Hugging Face](https://huggingface.co/datasets/ahsanayub/malicious-prompts) |
+| `MAlmasabi/Indirect-Prompt-Injection-BIPIA-GPT` (gated) | Indirect injection, held out from training | [Hugging Face](https://huggingface.co/datasets/MAlmasabi/Indirect-Prompt-Injection-BIPIA-GPT) |
+ 
+The three training sources were merged and subsampled into a single corpus of 20,662 labelled prompts, split 70/15/15 with stratification and a fixed random seed of 42. The BIPIA-derived set was never included in training and was used only to evaluate generalisation to indirect injection.
+ 
+The processed corpus is not committed to this repository. It is available from the Zenodo record linked above, and can also be regenerated from the source datasets using `data/new_data_exploration_cleaning_v2.ipynb`.
+
+### Corpus versions
+ 
+The corpus went through two iterations. Manual inspection of the first revealed that roughly 62% of rows labelled benign from one source were in fact HackAPrompt-style injection attempts. The corpus was rebuilt with corrected labels and every model retrained from scratch. **All results reported in the paper come from the corrected v2 corpus.** Artefacts carrying a `_v1` suffix, and everything under `models/Version1/`, belong to the first iteration and are retained only to show the correction.
  
 ---
