@@ -9,4 +9,27 @@ Headline findings: ModernBERT-base performed best in terms of detection performa
 Data, weights and result artefacts: https://zenodo.org/records/21998831
 
 
-
+---
+ 
+## Repository structure
+ 
+```
+data/                     Dataset download, cleaning and corpus construction notebooks
+evaluation/               Evaluation notebooks and their JSON/PNG output artefacts
+models/                   Training notebooks for all eight Phase 1 models, plus fine-tuning
+models/saved_v2/          Model configs, tokenisers and training artefacts (see Model weights)
+models/Version1/          Superseded v1 corpus artefacts, retained for transparency
+results/                  Consolidation notebook and the CSV tables reported in the paper
+full_pipeline_demo.ipynb  End-to-end pipeline demonstration
+```
+ 
+---
+ 
+## Setup
+ 
+Requires Python 3.11.
+ 
+```bash
+conda env create -f environment.yml
+conda activate llm-pids
+```
