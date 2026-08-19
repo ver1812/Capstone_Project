@@ -69,3 +69,16 @@ The processed corpus is not committed to this repository. It is available from t
 The corpus went through two iterations. Manual inspection of the first revealed that roughly 62% of rows labelled benign from one source were in fact HackAPrompt-style injection attempts. The corpus was rebuilt with corrected labels and every model retrained from scratch. **All results reported in the paper come from the corrected v2 corpus.** Artefacts carrying a `_v1` suffix, and everything under `models/Version1/`, belong to the first iteration and are retained only to show the correction.
  
 ---
+
+### Model weights
+
+Some weights and training artefacts are committed to this repository, but the set is incomplete: the traditional machine learning models are present in full, while for the BiLSTM and transformer models only the configurations, tokenisers, training histories and plots are included. The checkpoints themselves were too large to version here.
+
+Use the Zenodo record instead. It contains everything needed to reproduce the reported evaluations: the processed corpus, all model weights, and the complete set of result artefacts, laid out in the same directory structure the notebooks expect. Download it, point your configured `saved/` and `data_v2/` paths at it, and no further assembly is required.
+
+ 
+---
+ 
+## Running the notebooks
+ 
+These notebooks are the record of the experiments as they were run, on the hardware described above. Library versions have moved on since execution.
