@@ -82,3 +82,97 @@ Use the Zenodo record instead. It contains everything needed to reproduce the re
 ## Running the notebooks
  
 These notebooks are the record of the experiments as they were run, on the hardware described above. Library versions have moved on since execution.
+
+ 
+**1. Corpus construction**
+ 
+```
+data/new_data_exploration_cleaning_v2.ipynb
+```
+ 
+Downloads the source datasets, applies the label corrections, and writes the stratified splits. `data/01_download_datasets_v1.ipynb` and `data/02_data_exploration_cleaning_v1.ipynb` are the v1 equivalents.
+ 
+**2. Phase 1 : train all eight models**
+ 
+```
+models/Traditional_ml_v2.ipynb        Logistic Regression, LinearSVC
+models/Glove_100_512_v2.ipynb         BiLSTM, GloVe 100d, max length 512
+models/glove_100d_1024_v2.ipynb       BiLSTM, GloVe 100d, max length 1024
+models/glove_300d_1024_v2.ipynb       BiLSTM, GloVe 300d, max length 1024
+models/BERT_Colab_v2.ipynb            BERT-base
+models/DistilBERT_Colab_v2.ipynb      DistilBERT
+models/ModernBERT_Colab_v2.ipynb      ModernBERT-base
+```
+ 
+All three transformers use `num_labels=1` with `BCEWithLogitsLoss` and a manually computed `pos_weight`, in manual training loops rather than the HuggingFace `Trainer`, because `Trainer` defaults to a regression loss for single-label configurations.
+ 
+**3. Phase 2 : evaluation of the three selected models**
+ 
+```
+evaluation/baseline.ipynb                    Detection performance on the test set
+evaluation/time_comp.ipynb                   Per-query inference latency
+```
+ 
+**4. Phase 3 : generalisation, fine-tuning and evasion**
+ 
+```
+evaluation/bipia_generalization_eval.ipynb   Zero-shot evaluation on held-out BIPIA
+models/modernbert_bipia_phase2_finetune.ipynb Warm-start fine-tuning on both attack types
+evaluation/evasion_resistance_eval.ipynb     Homoglyph, Base64 and emoji smuggling
+```
+ 
+**5. Consolidation and demonstration**
+ 
+```
+results/results_consolidation.ipynb          Builds the reported tables from saved artefacts
+full_pipeline_demo.ipynb                     End-to-end Allow/Block pipeline
+```
+ 
+The demonstration notebook calls Google Gemini as the downstream LLM and expects an API key in Colab secrets. The controlled fetcher used here enforces only a request timeout and a response size limit; it has no domain allowlisting, SSRF protection, or content-type sandboxing, and is not suitable for production use.
+
+
+## Where each reported result comes from
+ 
+| Paper | Notebook | Artefact |
+|---|---|---|
+| Table II : Phase 1, all eight models | the seven training notebooks in `models/` | `results/results_artifacts/phase1_original_all_models.csv` |
+| Table III : detection performance, three models | `evaluation/baseline.ipynb` | `evaluation/results/baseline_results_v2.json`, `results/results_artifacts/phase2_test_3_models.csv` |
+| Table IV : inference latency | `evaluation/time_comp.ipynb` | `evaluation/results/inference_speed_results_v2.json`, `results/results_artifacts/phase2_inference_latency.csv` |
+| Table V : zero-shot and fine-tuned performance | `evaluation/bipia_generalization_eval.ipynb`, `models/modernbert_bipia_phase2_finetune.ipynb` | `results/results_artifacts/phase3_modernbert_deep_dive.csv` |
+| Table VI : surface-feature validity control | `models/modernbert_bipia_phase2_finetune.ipynb` | `results/results_artifacts/phase3_modernbert_deep_dive.csv` |
+| Table VII : evasion resistance | `evaluation/evasion_resistance_eval.ipynb` | `evaluation/results/evasion_resistance_finetuned_v2.json` |
+| Section V-E : end-to-end demonstration | `full_pipeline_demo.ipynb` | `results/results_artifacts/demo_pipeline_full_log_v2.json` |
+ 
+`results/results_artifacts/consolidated_results_v2.json` combines all of the above.
+ 
+### A note on decision thresholds
+ 
+Threshold sweep artefacts appear under `models/saved_v2/transformers/` : including a `bert_results_threshold0.15.json` and several sweep plots. These were produced during Phase 1 exploration. **All results reported in the paper use the default decision threshold of 0.5**, which a sweep confirmed to be optimal for ModernBERT-base. The single exception is the fine-tuned model in Phase 3, whose threshold was selected by sweeping the combined validation set scored by F2, which weights recall above precision; this is stated in the paper.
+ 
+---
+ 
+## Citation
+ 
+```bibtex
+@misc{sadvilkar2026llmpids,
+  author = {Sadvilkar, Vighnesh Arun},
+  title  = {LLM-PIDS: Prompt Classification for Detection and Mitigation
+            of Prompt Injection Attacks},
+  year   = {2026},
+  school = {University of Galway}
+}
+```
+ 
+Please also cite the source datasets: WildJailbreak (Jiang et al., 2024), `ahsanayub/malicious-prompts` (Ayub & Majumdar, 2024), the BIPIA benchmark (Yi et al., 2025), and the BIPIA-GPT derivative (Alamsabi et al., 2026).
+ 
+---
+ 
+## License
+ 
+MIT : see [LICENSE](LICENSE).
+ 
+---
+ 
+MSc Computer Science (Adaptive Cyber Security), University of Galway.
+Supervised by Prof. Paul Buitelaar and Dr. Ghanshyam Verma.
+ 
