@@ -1,0 +1,52 @@
+name: llm-pids
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+
+  # Core scientific stack
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - joblib
+
+  # Plotting
+  - matplotlib
+  - seaborn
+
+  # Notebook environment
+  - jupyter
+  - jupyterlab
+  - ipykernel
+  - ipywidgets
+  - tqdm
+
+  - pip:
+      # Deep learning
+      # Install the build matching your CUDA version - see pytorch.org
+      - torch>=2.2
+      - torchvision
+      - torchaudio
+
+      # Transformers and data loading
+      # transformers>=4.48 is required for ModernBERT support
+      - transformers>=4.48
+      - tokenizers
+      - datasets
+      - huggingface_hub
+      - accelerate
+      - safetensors
+      - sentencepiece
+
+
+      # Controlled fetcher and document extractor
+      - requests
+      - beautifulsoup4
+      - lxml
+      - pypdf
+
+      # Downstream LLM for the end-to-end demonstration
+      - google-genai
